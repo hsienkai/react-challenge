@@ -15,7 +15,7 @@ const SearchResult: React.SFC<SearchResultProps> = (props) => {
 
 function generateImages(imageURLs, favorite, unfavorite, favoriteList) {
   const images = []
-  imageURLs.forEach((element) => {
+  imageURLs.forEach((element, idx) => {
     let favorited = favoriteList.includes(element)
     let onClick = favorited ? unfavorite : favorite
     images.push(
@@ -26,6 +26,7 @@ function generateImages(imageURLs, favorite, unfavorite, favoriteList) {
         onClick={onClick}
         favorited={favorited}
         fromSearch={true}
+        key={idx}
       />);
   })
   return (

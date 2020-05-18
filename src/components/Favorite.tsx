@@ -14,7 +14,7 @@ const Favorite: React.SFC<FavoriteProps> = (props) => {
 
 function generateImages(unfavorite, favoriteList) {
   const images = []
-  favoriteList.forEach((element) => {
+  favoriteList.forEach((element, idx) => {
     images.push(
       <Image 
         url={element} 
@@ -23,6 +23,7 @@ function generateImages(unfavorite, favoriteList) {
         onClick={unfavorite}
         favorited={true}
         fromSearch={false}
+        key={idx}
       />);
   })
   return (
