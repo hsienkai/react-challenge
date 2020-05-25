@@ -17,6 +17,7 @@
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
+    "@babel/helper-validator-identifier": "^7.9.5",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "@types/jest": "^24.0.18",
@@ -34,9 +35,10 @@
     "jest": "^24.9.0",
     "jest-environment-enzyme": "^7.1.1",
     "jest-enzyme": "^7.1.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.14.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "redux-mock-store": "^1.5.4",
     "rimraf": "^3.0.0",
     "sass-loader": "^8.0.0",
     "source-map-loader": "^0.2.4",
@@ -48,14 +50,16 @@
     "webpack": "^4.41.1",
     "webpack-cli": "^3.3.9",
     "webpack-dev-middleware": "^3.7.2",
-    "webpack-dev-server": "^3.8.2",
+    "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.22",
+    "axios": "^0.19.2",
     "react-hot-loader": "^4.12.15",
-    "react-redux": "^7.1.1",
-    "redux": "^4.0.4"
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
   }
 }
