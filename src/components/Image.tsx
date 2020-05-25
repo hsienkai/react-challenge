@@ -8,30 +8,46 @@ interface ImageProps {
   height: number,
   favorited: boolean,
   fromSearch: boolean,
-  onClick(url: string): any,
+  onClick(url: string): void,
 }
 
 const Image: React.SFC<ImageProps> = (props) => {
-  const icon = props.favorited ? "redHeartIcon" : "whiteHeartIcon"
-  const alt = props.favorited ? "red heart icon" : "white heart icon"
-  return (
-    <Container>
-      {props.fromSearch ? <Img
-        src={props.url}
-        width={props.width}
-        height={props.height}
-      /> : <ImgFavorite
-      src={props.url}
-      width={props.width}
-      height={props.height}
-      />}
-      {props.fromSearch ? <HeartWrapper onClick={() => props.onClick(props.url)}>
-        <Heart icon={icon} alt={alt} /> </HeartWrapper> : 
-        <HeartWrapperFavorite onClick={() => props.onClick(props.url)}>
-        <Heart icon={icon} alt={alt} />
-      </HeartWrapperFavorite>}
-    </Container>
-  )
+  const { url, width, height, favorited, fromSearch, onClick } = props
+  const icon = favorited ? "redHeartIcon" : "whiteHeartIcon"
+  const alt = favorited ? "red heart icon" : "white heart icon"
+  if (fromSearch) {
+    return (
+      <Container>
+        <Img
+          src={url}
+          width={width}
+          height={height}
+        />
+        <HeartWrapper onClick={() => onClick(url)}>
+          <Heart 
+            icon={icon} 
+            alt={alt} 
+          /> 
+        </HeartWrapper>
+      </Container> 
+    )
+  } else {
+    return (
+      <Container>
+        <ImgFavorite
+          src={url}
+          width={width}
+          height={height}
+        />
+        <HeartWrapperFavorite onClick={() => onClick(url)}>
+          <Heart 
+            icon={icon} 
+            alt={alt} 
+          /> 
+        </HeartWrapperFavorite>
+      </Container>
+    ) 
+  }
 }
 
 const Container = styled.div({

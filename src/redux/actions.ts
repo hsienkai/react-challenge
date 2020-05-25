@@ -16,14 +16,15 @@ export const updateImages = imageURLs => ({
 })
 
 export function fetchImages(text = "hound") {
-	return (dispatich) => {
+	return (dispatch) => {
 		return axios.get(`https://dog.ceo/api/breed/${text}/images/random/10`)
 		.then((response) => {
-			dispatich(updateImages(response.data.message))
+			dispatch(updateImages(response.data.message))
 		})
 		.catch((error) => {
 			console.log(error);
-			dispatich(updateImages([]))
+			dispatch(updateImages([]))
 		})
 	}
 }
+

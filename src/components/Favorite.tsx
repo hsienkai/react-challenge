@@ -5,7 +5,7 @@ import Heart from './Heart'
 
 interface FavoriteProps {
   favoriteList: string[],
-  unfavorite(url: string): any,
+  unfavorite(url: string): void,
 }
 
 const Favorite: React.SFC<FavoriteProps> = (props) => {
@@ -14,7 +14,7 @@ const Favorite: React.SFC<FavoriteProps> = (props) => {
 
 function generateImages(unfavorite, favoriteList) {
   const images = []
-  favoriteList.forEach((element, idx) => {
+  favoriteList.map((element, idx) => {
     images.push(
       <Image 
         url={element} 

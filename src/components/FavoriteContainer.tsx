@@ -1,44 +1,20 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Favorite from './Favorite'
-import { bindActionCreators } from 'redux';
 import { unfavoriteImage } from '../redux/actions';
 
-interface IRecipeProps {
-    unfavoriteImageAction: any;
-    favoriteList: string[];
-}
+export default () => {
+  const favoriteList = useSelector((state) => state.favoriteList)
+  const dispatch = useDispatch();
 
-interface IRecipeState {
-}
-
-class FavoriteContainer extends React.Component<IRecipeProps, IRecipeState> {
-  constructor(props) {
-    super(props);
-    this.unfavorite = this.unfavorite.bind(this);
+  function unfavorite(url) {
+    dispatch(unfavoriteImage(url))
   }
 
-  unfavorite(url) {
-    this.props.unfavoriteImageAction(url);
-  }
-
-  render() {
-    return(
-      <Favorite 
-        favoriteList= {this.props.favoriteList}
-        unfavorite= {this.unfavorite}
-      />
-    )
-  }
+  return(
+    <Favorite 
+      favoriteList= {favoriteList}
+      unfavorite= {unfavorite}
+    />    
+  )
 }
-
-const mapStateToProps = (state) => {
-  return state
-}
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  unfavoriteImageAction: unfavoriteImage
-}, dispatch)
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(FavoriteContainer);

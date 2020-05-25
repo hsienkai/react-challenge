@@ -5,8 +5,8 @@ import Image from './Image'
 interface SearchResultProps {
   imageURLs: string[],
   favoriteList: string[],
-  favorite(url: string): any,
-  unfavorite(url: string): any,
+  favorite(url: string): void,
+  unfavorite(url: string): void,
 }
 
 const SearchResult: React.SFC<SearchResultProps> = (props) => {

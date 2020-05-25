@@ -4,8 +4,8 @@ import { icons } from '../assets'
 
 interface SearchBarProps {
   value: string,
-  updateQuery(text: string): any,
-  search: any,
+  updateQuery(text: string): void,
+  search(): void,
 }
 
 const SearchBar: React.SFC<SearchBarProps> = (props) => {
